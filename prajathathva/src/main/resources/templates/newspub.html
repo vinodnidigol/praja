@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>ಪ್ರಜಾತತ್ವ</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" ></script>
+      <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+      <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow&display=swap" rel="stylesheet">
+
+       <link th:href="@{/css/stylesheet.css}" href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
+ 
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+<table align="center">
+<form th:action="@{/newsupload}" method="post" enctype="multipart/form-data">
+
+<!--  <label>Date:<input type="text" name="date"/></label> -->
+<div><label>Category:<select name="cat">
+<option value="ಕೋವಿಡ್-19">ಕೋವಿಡ್-19</option>
+<option value="ರಾಜ್ಯ">ರಾಜ್ಯ</option>
+<option value="ರಾಷ್ಟ್ರೀಯ">ರಾಷ್ಟ್ರೀಯ</option>
+<option value="ಜಗತ್ತು">ಜಗತ್ತು</option>
+<option value="ಕ್ರೀಡೆ">ಕ್ರೀಡೆ</option>
+<option value="ಆರಾಧನೆ/ ಆಚರಣೆ">ಆರಾಧನೆ/ ಆಚರಣೆ</option>
+<option value="ಜ್ಯೋತಿಷ್ಯ">ಜ್ಯೋತಿಷ್ಯ</option>
+<option value="ಶಿಕ್ಷಣ/ ಉದ್ಯೋಗ">ಶಿಕ್ಷಣ/ ಉದ್ಯೋಗ</option>
+</select></label> </div>
+<div>
+<label>Title:<input type="text" name="title"/></label> </div>
+<div> 
+<label>Matter:<textarea type="textarea" name="matter"></textarea></label></div>
+<div>
+
+<label>Image:<input type="file" id="image" name="image"  onchange="return fileValidation()"/></label>
+
+</div>
+<div>
+<label>Author:<input type="text" name="author"/></label>
+</div>
+ <div><input type="submit" value="Save"/></div>
+</form>
+</table>
+</body>
+</html>

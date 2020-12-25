@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>ಪ್ರಜಾತತ್ವ</title>
+ <!-- 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" ></script>
+      <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+      <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/stylesheet.css}" href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
+ 
+ -->  
+     <!-- End plugin css for this page -->
+    <link rel="shortcut icon" type="image/png" th:href="@{/image/favicon.png}" />
+
+    <link th:href="@{/assets/vendors/mdi/css/materialdesignicons.min.css}" type="text/css" rel="stylesheet" />
+    <link th:href="@{/assets/vendors/aos/dist/aos.css/aos.css}" type="text/css" rel="stylesheet"  />
+    <link th:href="@{/assets/css/style.css}" type="text/css" rel="stylesheet"/>
+    
+</head>
+<body>
+
+
+
+
+
+<div class="container-scroller">
+      <div class="main-panel">
+        <!-- partial:partials/_navbar.html -->
+        <header id="header">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="navbar-top">
+                <div class="d-flex justify-content-between align-items-center">
+                  <ul class="navbar-top-left-menu">
+                    <li class="nav-item">
+                      <a href="pages/index-inner.html" class="nav-link">Advertise</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/aboutus.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Events</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Write for Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">In the Press</a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-top-right-menu">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Sign in</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="navbar-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <a class="navbar-brand" href="#"
+                      ><img th:src="@{/image/prajathathva-news-kannada-logo-s-1.png}" alt=""
+                    /></a>
+                  </div>
+                  <div>
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                      class="navbar-collapse justify-content-center collapse"
+                      id="navbarSupportedContent"
+                    >
+                      <ul
+                        class="navbar-nav d-lg-flex justify-content-between align-items-center"
+                      >
+                        <li>
+                          <button class="navbar-close">
+                            <i class="mdi mdi-close"></i>
+                          </button>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" th:href="@{/}">ಮುಖಪುಟ</a>
+                        </li>
+                       <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                  ಸುದ್ದಿಗಳು </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" th:href="@{/state}">ರಾಜ್ಯ</a>
+          <a class="dropdown-item" th:href="@{/national}">ರಾಷ್ಟ್ರೀಯ</a>
+          <a class="dropdown-item" th:href="@{/world}">ಜಗತ್ತು</a> </div>
+          </li>   
+                       <li class="nav-item active">
+        <a class="nav-link" th:href="@{/covid19}">ಕೋವಿಡ್-19</a>
+      </li>
+      
+    <li class="nav-item active">
+        <a class="nav-link" th:href="@{/sports}">ಕ್ರೀಡೆ</a>
+      </li>
+      
+      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                               ಆಚರಣೆ/ಜ್ಯೋತಿಷ್ಯ </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" th:href="@{/devotional}">ಆರಾಧನೆ/ಆಚರಣೆ</a>
+          <a class="dropdown-item" th:href="@{/astrology}">ಜ್ಯೋತಿಷ್ಯ</a>
+         
+          </li>   
+      
+   <!-- -   
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/devotional}">ಆರಾಧನೆ/ಆಚರಣೆ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/astrology}">ಜ್ಯೋತಿಷ್ಯ</a>
+      </li> --> 
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/education}">ಶಿಕ್ಷಣ/ಉದ್ಯೋಗ</a>
+      </li> 
+                      </ul>
+                    </div>
+                  </div>
+                  <ul class="social-media">
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-youtube"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-twitter"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <!-- partial -->
+        <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+        <div class="content-wrapper">
+          <div class="container">
+            <div class="row" data-aos="fade-up">
+              <div class="col-xl-8 stretch-card grid-margin">
+                <div class="position-relative">
+                  <img
+                    src="assets/images/dashboard/banner.jpg"
+                    alt="banner"
+                    class="img-fluid"
+                  />
+                  <div class="banner-content">
+                    <div class="badge badge-danger fs-12 font-weight-bold mb-3">
+                      global news
+                    </div>
+                    <h1 class="mb-0">GLOBAL PANDEMIC</h1>
+                    <h1 class="mb-2">
+                      Coronavirus Outbreak LIVE Updates: ICSE, CBSE Exams
+                      Postponed, 168 Trains
+                    </h1>
+                    <div class="fs-12">
+                      <span class="mr-2">Photo </span>10 Minutes ago
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 stretch-card grid-margin">
+                <div class="card bg-dark text-white">
+                  <div class="card-body">
+                    <h2>Latest news</h2>
+
+ <!--                   
+
+<tr th:each="in : ${datalist}" >
+<div><td><a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a></td></div>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+              <td th:text ="${in.date}"></td>
+            </tr>
+
+
+                 -->    
+
+                    <div th:each ="in:${latest3}"
+                      class="d-flex pt-4 align-items-center justify-content-between"
+                    >
+                      <div class="pr-3">
+                        <h6><a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"/></a></h6>
+                        <div class="fs-12">
+                          <span class="mr-2"><td th:text ="${in.cat}"></td></span> <td th:text ="${in.date}"></td>
+                        </div>
+                      </div>
+                      <div class="rotate-img">
+                        <img  th:src="@{'/upload/image/' + ${in.id}}"
+                          alt="thumb"
+                          class="img-fluid img-lg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" data-aos="fade-up">
+              <div class="col-lg-3 stretch-card grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>Category</h2>
+                    <ul class="vertical-menu">
+                      <li><a href="@{/covid19}">ಕೋವಿಡ್-19</a></li>
+                      <li><a href="@{/world}">ಜಗತ್ತು</a></li>
+                      <li><a href="@{/national}">ರಾಷ್ಟ್ರೀಯ</a></li>
+                      <li><a href="@{state}">ರಾಜ್ಯ</a></li>
+                      <li><a href="@{/education}">ಶಿಕ್ಷಣ/ ಉದ್ಯೋಗ</a></li>
+                      <li><a href="@{/sports}">ಕ್ರೀಡೆ</a></li>
+                      <li><a href="@{/astrology}">ಜ್ಯೋತಿಷ್ಯ</a></li>
+                      <li><a href="@{/devotional}">ಆರಾಧನೆ/ ಆಚರಣೆ</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-9 stretch-card grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                   
+<!--  
+<tr th:each="in : ${datalist}" >
+<div><td><a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a></td></div>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+              <td th:text ="${in.date}"></td>
+            </tr >
+
+-->
+                  
+
+                    <div th:each="in : ${datalist}" class="row">
+                      <div class="col-sm-4">
+                        <div class="position-relative">
+                          <div class="rotate-img">
+                            <img  th:src="@{'/upload/image/' + ${in.id}}"
+                              alt="thumb"
+                              class="img-fluid"
+                            />
+                          </div>
+                          <div class="badge-positioned">
+                            <span class="badge badge-danger font-weight-bold"
+                              > <td th:text ="${in.cat}"></td></span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-8">
+                        <h2 class="mb-2 font-weight-600">
+                         <a th:href="@{/news/{id}(id=${in.id})}"><p  th:text ="${in.title}"/></a>
+                        </h2>
+                        <div class="fs-13 mb-2">
+                          <span class="mr-2"> <td th:text ="${in.date}"></td></span>
+                        </div>
+                        <p class="fs-15">
+                         <td th:text ="${in.matter}"></td>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+     <!--       <div class="row" data-aos="fade-up">
+              <div class="col-sm-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-8">
+                        <div class="card-title">
+                          Video
+                        </div>
+                        <div class="row">
+                         
+ 
+ 
+                         <!-- ----------------------Covid-19--------------------- -
+ 
+<tr th:each="in : ${covid195}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr> 
+
+                          <div th:each="in : ${covid195}" class="col-sm-6 grid-margin">
+                            <div class="position-relative">
+                              <div class="rotate-img">
+                             <a th:href="@{/news/{id}(id=${in.id})}">   <img
+                                 th:src="@{'/upload/image/' + ${in.id}}"
+                                  alt="thumb"
+                                  class="img-fluid"
+                                /> </a>
+                              </div>
+                              <div class="badge-positioned w-90">
+                                <div
+                                  class="d-flex justify-content-between align-items-center"
+                                >
+                                  <span
+                                    class="badge badge-danger font-weight-bold"
+                                    > <td th:text ="${in.cat}"></td></span
+                                  >
+                                  <div class="video-icon">
+                                    <i class="mdi mdi-play"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          
+
+                          <div class="col-sm-6 grid-margin">
+                            <div class="position-relative">
+                              <div class="rotate-img">
+                                <img
+                                  src="assets/images/dashboard/home_10.jpg"
+                                  alt="thumb"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="badge-positioned w-90">
+                                <div
+                                  class="d-flex justify-content-between align-items-center"
+                                >
+                                  <span
+                                    class="badge badge-danger font-weight-bold"
+                                    >National News</span
+                                  >
+                                  <div class="video-icon">
+                                    <i class="mdi mdi-play"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="col-lg-4">
+                        <div
+                          class="d-flex justify-content-between align-items-center"
+                        >
+                          <div class="card-title">
+                            Latest Video
+                          </div>
+                          <p class="mb-3">See all</p>
+                        </div>
+                       
+                       
+                      
+                       
+                        <div
+                          class="d-flex justify-content-between align-items-center pt-3"
+                        >
+                          <div class="div-w-80 mr-3">
+                            <div class="rotate-img">
+                              <img
+                                src="assets/images/dashboard/home_15.jpg"
+                                alt="thumb"
+                                class="img-fluid"
+                              />
+                            </div>
+                          </div>
+                          <h3 class="font-weight-600 mb-0">
+                            Powerful Moments of Peace
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            --> 
+            <div class="row" data-aos="fade-up">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+            <!--         <div class="col-xl-6">
+                        <div class="card-title">
+                          Sport light
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-6 col-lg-8 col-sm-6">
+                            <div class="rotate-img">
+                              <img
+                                src="assets/images/dashboard/home_16.jpg"
+                                alt="thumb"
+                                class="img-fluid"
+                              />
+                            </div>
+                            <h2 class="mt-3 text-primary mb-2">
+                              Newsrooms exercise..
+                            </h2>
+                            <p class="fs-13 mb-1 text-muted">
+                              <span class="mr-2">Photo </span>10 Minutes ago
+                            </p>
+                            <p class="my-3 fs-15">
+                              Lorem Ipsum has been the industry's standard dummy
+                              text ever since the 1500s, when an unknown printer
+                              took
+                            </p>
+                            <a href="#" class="font-weight-600 fs-16 text-dark"
+                              >Read more</a
+                            >
+                          </div>
+                          <div class="col-xl-6 col-lg-4 col-sm-6">
+                            <div class="border-bottom pb-3 mb-3">
+                              <h3 class="font-weight-600 mb-0">
+                                Social distancing is ..
+                              </h3>
+                              <p class="fs-13 text-muted mb-0">
+                                <span class="mr-2">Photo </span>10 Minutes ago
+                              </p>
+                              <p class="mb-0">
+                                Lorem Ipsum has been the industry's
+                              </p>
+                            </div>
+                            <div class="border-bottom pb-3 mb-3">
+                              <h3 class="font-weight-600 mb-0">
+                                Panic buying is forcing..
+                              </h3>
+                              <p class="fs-13 text-muted mb-0">
+                                <span class="mr-2">Photo </span>10 Minutes ago
+                              </p>
+                              <p class="mb-0">
+                                Lorem Ipsum has been the industry's
+                              </p>
+                            </div>
+                            <div class="border-bottom pb-3 mb-3">
+                              <h3 class="font-weight-600 mb-0">
+                                Businesses ask hundreds..
+                              </h3>
+                              <p class="fs-13 text-muted mb-0">
+                                <span class="mr-2">Photo </span>10 Minutes ago
+                              </p>
+                              <p class="mb-0">
+                                Lorem Ipsum has been the industry's
+                              </p>
+                            </div>
+                            <div>
+                              <h3 class="font-weight-600 mb-0">
+                                Tesla's California factory..
+                              </h3>
+                              <p class="fs-13 text-muted mb-0">
+                                <span class="mr-2">Photo </span>10 Minutes ago
+                              </p>
+                              <p class="mb-0">
+                                Lorem Ipsum has been the industry's
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>    
+                      <div class="col-xl-6">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="card-title">
+                              Sport light
+                            </div>
+                            <div class="border-bottom pb-3">
+                              <div class="rotate-img">
+                                <img
+                                  src="assets/images/dashboard/home_17.jpg"
+                                  alt="thumb"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <p class="fs-16 font-weight-600 mb-0 mt-3">
+                                Kaine: Trump Jr. may have
+                              </p>
+                              <p class="fs-13 text-muted mb-0">
+                                <span class="mr-2">Photo </span>10 Minutes ago
+                              </p>
+                            </div>
+                            <div class="pt-3 pb-3">
+                              <div class="rotate-img">
+                                <img
+                                  src="assets/images/dashboard/home_18.jpg"
+                                  alt="thumb"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <p class="fs-16 font-weight-600 mb-0 mt-3">
+                                Kaine: Trump Jr. may have
+                              </p>
+                              <p class="fs-13 text-muted mb-0">
+                                <span class="mr-2">Photo </span>10 Minutes ago
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card-title">
+                              Celebrity news
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="border-bottom pb-3">
+                                  <div class="row">
+                                    <div class="col-sm-5 pr-2">
+                                      <div class="rotate-img">
+                                        <img
+                                          src="assets/images/dashboard/home_19.jpg"
+                                          alt="thumb"
+                                          class="img-fluid w-100"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-7 pl-2">
+                                      <p class="fs-16 font-weight-600 mb-0">
+                                        Online shopping ..
+                                      </p>
+                                      <p class="fs-13 text-muted mb-0">
+                                        <span class="mr-2">Photo </span>10
+                                        Minutes ago
+                                      </p>
+                                      <p class="mb-0 fs-13">
+                                        Lorem Ipsum has been
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="border-bottom pb-3 pt-3">
+                                  <div class="row">
+                                    <div class="col-sm-5 pr-2">
+                                      <div class="rotate-img">
+                                        <img
+                                          src="assets/images/dashboard/home_20.jpg"
+                                          alt="thumb"
+                                          class="img-fluid w-100"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-7 pl-2">
+                                      <p class="fs-16 font-weight-600 mb-0">
+                                        Online shopping ..
+                                      </p>
+                                      <p class="fs-13 text-muted mb-0">
+                                        <span class="mr-2">Photo </span>10
+                                        Minutes ago
+                                      </p>
+                                      <p class="mb-0 fs-13">
+                                        Lorem Ipsum has been
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="border-bottom pb-3 pt-3">
+                                  <div class="row">
+                                    <div class="col-sm-5 pr-2">
+                                      <div class="rotate-img">
+                                        <img
+                                          src="assets/images/dashboard/home_21.jpg"
+                                          alt="thumb"
+                                          class="img-fluid w-100"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-7 pl-2">
+                                      <p class="fs-16 font-weight-600 mb-0">
+                                        Online shopping ..
+                                      </p>
+                                      <p class="fs-13 text-muted mb-0">
+                                        <span class="mr-2">Photo </span>10
+                                        Minutes ago
+                                      </p>
+                                      <p class="mb-0 fs-13">
+                                        Lorem Ipsum has been
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="pt-3">
+                                  <div class="row">
+                                    <div class="col-sm-5 pr-2">
+                                      <div class="rotate-img">
+                                        <img
+                                          src="assets/images/dashboard/home_22.jpg"
+                                          alt="thumb"
+                                          class="img-fluid w-100"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-7 pl-2">
+                                      <p class="fs-16 font-weight-600 mb-0">
+                                        Online shopping ..
+                                      </p>
+                                      <p class="fs-13 text-muted mb-0">
+                                        <span class="mr-2">Photo </span>10
+                                        Minutes ago
+                                      </p>
+                                      <p class="mb-0 fs-13">
+                                        Lorem Ipsum has been
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> 
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- main-panel ends -->
+        <!-- container-scroller ends -->
+
+        <!-- partial:partials/_footer.html -->
+        <footer>
+          <div class="footer-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img src="assets/images/logo.svg" class="footer-logo" alt="" />
+                  <h5 class="font-weight-normal mt-4 mb-5">
+                    Newspaper is your news, entertainment, music fashion website. We
+                    provide you with the latest breaking news and videos straight from
+                    the entertainment industry.
+                  </h5>
+                  <ul class="social-media mb-3">
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-youtube"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="mdi mdi-twitter"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <h3 class="font-weight-bold mb-3">RECENT POSTS</h3>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="footer-border-bottom pb-2">
+                        <div class="row">
+                          <div class="col-3">
+                            <img
+                              src="assets/images/dashboard/home_1.jpg"
+                              alt="thumb"
+                              class="img-fluid"
+                            />
+                          </div>
+                          <div class="col-9">
+                            <h5 class="font-weight-600">
+                              Cotton import from USA to soar was American traders
+                              predict
+                            </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="footer-border-bottom pb-2 pt-2">
+                        <div class="row">
+                          <div class="col-3">
+                            <img
+                              src="assets/images/dashboard/home_2.jpg"
+                              alt="thumb"
+                              class="img-fluid"
+                            />
+                          </div>
+                          <div class="col-9">
+                            <h5 class="font-weight-600">
+                              Cotton import from USA to soar was American traders
+                              predict
+                            </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div>
+                        <div class="row">
+                          <div class="col-3">
+                            <img
+                              src="assets/images/dashboard/home_3.jpg"
+                              alt="thumb"
+                              class="img-fluid"
+                            />
+                          </div>
+                          <div class="col-9">
+                            <h5 class="font-weight-600 mb-3">
+                              Cotton import from USA to soar was American traders
+                              predict
+                            </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <h3 class="font-weight-bold mb-3">CATEGORIES</h3>
+                  <div class="footer-border-bottom pb-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">Magazine</h5>
+                      <div class="count">1</div>
+                    </div>
+                  </div>
+                  <div class="footer-border-bottom pb-2 pt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">Business</h5>
+                      <div class="count">1</div>
+                    </div>
+                  </div>
+                  <div class="footer-border-bottom pb-2 pt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">Sports</h5>
+                      <div class="count">1</div>
+                    </div>
+                  </div>
+                  <div class="footer-border-bottom pb-2 pt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">Arts</h5>
+                      <div class="count">1</div>
+                    </div>
+                  </div>
+                  <div class="pt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">Politics</h5>
+                      <div class="count">1</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="d-sm-flex justify-content-between align-items-center">
+                    <div class="fs-14 font-weight-600">
+                      © 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> BootstrapDash</a>. All rights reserved.
+                    </div>
+                    <div class="fs-14 font-weight-600">
+                      Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- partial -->
+      </div>
+    </div>
+
+
+<script th:src="@{/assets/vendors/js/vendor.bundle.base.js}"></script>
+    <!-- endinject -->
+    <!-- plugin js for this page -->
+    <script th:src="@{/assets/vendors/aos/dist/aos.js/aos.js}"></script>
+    <!-- End plugin js for this page -->
+    <!-- Custom js for this page-->
+    <script th:src="@{/assets/js/demo.js}"></script>
+    <script th:src="@{/assets/js/jquery.easeScroll.js}"></script>
+    <!-- End custom js for this page-->
+
+
+<!--  
+<section id="nav-bar"> 
+   <nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" href="#"><img th:src="@{/image/prajathathva-news-kannada-logo-s-1.png}"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+  aria-label="Toggle navigation">
+   <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav  ml-auto">
+    
+    <li class="nav-item active">
+        <a class="nav-link" th:href="@{/}">ಮುಖಪುಟ</a>
+      </li>
+    
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ಸುದ್ದಿಗಳು
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" th:href="@{/state}">ರಾಜ್ಯ</a>
+          <a class="dropdown-item" th:href="@{/national}">ರಾಷ್ಟ್ರೀಯ</a>
+          <a class="dropdown-item" th:href="@{/world}">ಜಗತ್ತು</a>
+          </li> 
+      
+       <li class="nav-item active">
+        <a class="nav-link" th:href="@{/covid19}">ಕೋವಿಡ್-19</a>
+      </li>
+      
+    <li class="nav-item active">
+        <a class="nav-link" th:href="@{/sports}">ಕ್ರೀಡೆ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/devotional}">ಆರಾಧನೆ/ ಆಚರಣೆ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/astrology}">ಜ್ಯೋತಿಷ್ಯ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/education}">ಶಿಕ್ಷಣ/ ಉದ್ಯೋಗ</a>
+      </li>
+       
+    </ul>
+  </div>
+</nav>
+   </section>
+-->
+
+<!-- -------------------All News------------------ -->
+<form action="@{/Datalist}" method="get">
+<tr th:each="in : ${datalist}" >
+<div><td><a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a></td></div>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+              <td th:text ="${in.date}"></td>
+            </tr>
+
+</form>
+
+<!-- ----------------------Covid-19--------------------- -->
+<tr th:each="in : ${covid195}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+            
+            
+ <!-- ------------------State---------------------------- -->          
+
+<tr th:each="in : ${state5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+
+<!-- ------------------national---------------------------- -->          
+
+<tr th:each="in : ${national5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+
+
+<!-- ------------------world---------------------------- -->          
+
+<tr th:each="in : ${world5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+
+<!-- ------------------sports---------------------------- -->          
+
+<tr th:each="in : ${sports5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+
+<!-- ------------------devotional---------------------------- -->          
+
+<tr th:each="in : ${devotional5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+
+<!-- --------------Astrology ----------------------------------->
+
+<tr th:each="in : ${astrology5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+<!-- ------------------education---------------------------- -->          
+
+<tr th:each="in : ${education5}" >
+<a th:href="@{/news/{id}(id=${in.id})}"><td  th:text ="${in.title}"></a>
+ <div> <td><img  th:src="@{'/upload/image/' + ${in.id}}"></img></td></div>
+            <td th:text ="${in.cat}"></td>
+             <td th:text ="${in.date}"></td>
+            </tr>
+
+</body>
+</html>

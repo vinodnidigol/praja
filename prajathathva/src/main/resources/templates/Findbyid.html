@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>ಪ್ರಜಾತತ್ವ</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" ></script>
+      <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+      <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow&display=swap" rel="stylesheet">
+
+       <link th:href="@{/css/stylesheet.css}" href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
+ 
+
+</head>
+<body>
+<section id="nav-bar"> 
+   <nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" href="#"><img th:src="@{/image/prajathathva-news-kannada-logo-s-1.png}"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+  aria-label="Toggle navigation">
+   <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav  ml-auto">
+    
+    <li class="nav-item active">
+        <a class="nav-link" th:href="@{/}">ಮುಖಪುಟ</a>
+      </li>
+    
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ಸುದ್ದಿಗಳು
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" th:href="@{/state}">ರಾಜ್ಯ</a>
+          <a class="dropdown-item" th:href="@{/national}">ರಾಷ್ಟ್ರೀಯ</a>
+          <a class="dropdown-item" th:href="@{/world}">ಜಗತ್ತು</a>
+          </li> 
+      
+       <li class="nav-item active">
+        <a class="nav-link" th:href="@{/covid19}">ಕೋವಿಡ್-19</a>
+      </li>
+      
+    <li class="nav-item active">
+        <a class="nav-link" th:href="@{/sports}">ಕ್ರೀಡೆ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/devotional}">ಆರಾಧನೆ/ ಆಚರಣೆ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/astrology}">ಜ್ಯೋತಿಷ್ಯ</a>
+      </li>
+      
+        <li class="nav-item active">
+        <a class="nav-link" th:href="@{/education}">ಶಿಕ್ಷಣ/ ಉದ್ಯೋಗ</a>
+      </li>
+       
+    </ul>
+  </div>
+</nav>
+   </section>
+
+
+<div> <td><img  th:src="@{'/upload/image/' + ${id}}"></img></td></div>
+<div><td th:text="${date}"></td></div>
+<div><td th:text="${cat}"></td></div>
+<div><td th:text="${title}"></td></div>
+<div><td th:text="${matter}"></td></div>
+<div><td th:text="${author}"></td></div>
+
+</body>
+</html>
